@@ -47,6 +47,7 @@ public final class RdbParser implements AutoCloseable {
   private static final int MODULE_AUX = 0xf7;
   private static final int FUNCTION_PRE_GA = 0xf6;
   private static final int FUNCTION2 = 0xf5;
+  private static final int KEY_META = 0xf3;
   private static final int SLOT_INFO = 0xf4;
 
   private static final int BUFFER_SIZE = 8 * 1024;
@@ -160,7 +161,7 @@ public final class RdbParser implements AutoCloseable {
       throw new IllegalStateException("Not a valid redis RDB file");
     }
     version = readVersion();
-    if (version < 1 || version > 12) {
+    if (version < 1 || version > 13) {
       throw new IllegalStateException("Unknown version");
     }
     nextEntry = new KeyValuePair();
@@ -221,6 +222,7 @@ public final class RdbParser implements AutoCloseable {
           readIdle();
           continue;
         case MODULE_AUX:
+        case KEY_META:
           throw new UnsupportedOperationException("Redis modules are not supported");
         case FUNCTION_PRE_GA:
         case FUNCTION2:
@@ -442,6 +444,7 @@ public final class RdbParser implements AutoCloseable {
       case 15: // Stream ListPacks
       case 19: // Stream ListPacks_2
       case 21: // Stream ListPacks_3
+      case 26: // Stream ListPacks_4
         throw new UnsupportedOperationException("Redis streams are not supported");
       case 16:
         readHashListPack();

@@ -23,8 +23,8 @@ and ListPack) such that those are only decoded when needed. This allows the
 caller to efficiently skip over these entries or defer their decoding to a
 worker thread.
 
-RDB files created by all versions of Redis through 7.4.x are supported (i.e.,
-RDB versions 1 through 12). Some features, however, are not supported:
+RDB files created by all versions of Redis through 8.x are supported (i.e.,
+RDB versions 1 through 13). Some features, however, are not supported:
 
 - [Modules](https://redis.io/modules), introduced in RDB version 8
 - [Streams](https://redis.io/topics/streams-intro), introduced in RDB version 9.
