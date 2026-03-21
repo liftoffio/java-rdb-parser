@@ -1,6 +1,7 @@
 .PHONY: all
 
 all:
+	$(MAKE) -C 8.6.1
 	$(MAKE) -C 7.4.1
 	$(MAKE) -C 7.2.4
 	$(MAKE) -C 7.0.11

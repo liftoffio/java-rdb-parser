@@ -22,3 +22,6 @@
 [submodule "redis/7.4.1"]
 	path = redis/7.4.1
 	url = https://github.com/redis/redis.git
+[submodule "redis/8.6.1"]
+	path = redis/8.6.1
+	url = https://github.com/redis/redis.git
