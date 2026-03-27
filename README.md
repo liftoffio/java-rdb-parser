@@ -163,7 +163,7 @@ End of file. Checksum: 157e40ad49ef13f6
 
 ## References
 
-As of November 2024, the most recent RDB format version is 12. The source of
+As of March 2026, the most recent RDB format version is 13. The source of
 truth is the [rdb.h][] file in the [Redis repo][]. The following resources
 provide a good overview of the RDB format.
 
